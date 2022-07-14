@@ -5,7 +5,7 @@
       <form ref="formRef">
         <h1>后台管理中心</h1>
         <br/>
-        <input type="text" placeholder="用户名" prop="username" v-model="data.loginData.username">
+        <input type="text" placeholder="用户名" prop="email" v-model="data.loginData.email">
         <input type="password" placeholder="密码" prop="password" v-model="data.loginData.password">
         <br/>
         <!--        添加提交事件-->
@@ -27,24 +27,22 @@
 <script setup>
 import {reactive, ref} from "vue";
 import store from "../store";
-import {useRouter} from "vue-router";
+import {useRoute, useRouter} from "vue-router";
 import {loginApi} from "../utils/request";
-
 
 const router = useRouter();
 
 const data = reactive({
   loginData: {
-    username: "",
-    password: ""
+    email: "abcd@163.com",
+    password: "123123"
   }
 });
 
 //定义提交登录的方法
+//已经在request中封装完成所有功能
 const handleLogin = () => {
-  loginApi(data.loginData).then(res => {
-    // console.log('登陆的返回', res)
-  })
+  loginApi(data.loginData)
 }
 
 </script>

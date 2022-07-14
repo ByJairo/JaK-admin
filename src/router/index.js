@@ -17,14 +17,6 @@ const index = [
         meta: {
             title: '首页'
         }
-    },
-    {
-        path: '/test',
-        name: 'test',
-        component: () => import('../views/test.vue'),
-        meta: {
-            title: 'test'
-        }
     }
 ]
 

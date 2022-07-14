@@ -4,7 +4,7 @@ import {ElLoading, ElMessage} from "element-plus";
 const service = axios.create({
     //解决跨域问题,在vite.config.js中配置基准地址
     baseURL: '/api',
-    timeout: 5000,
+    timeout: 10000,
     //请求头
     headers: {
         //请求头数据类型
@@ -17,8 +17,7 @@ service.interceptors.request.use(config => {
 })
 //请求响应拦截器
 service.interceptors.response.use(response => {
-    const data = response.data;
-    return response.data;
+    return response;
 })
 //post请求
 export const post = config => {
