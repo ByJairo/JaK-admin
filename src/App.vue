@@ -10,8 +10,7 @@ import store from "./store";
 router.beforeEach((to, from, next) => {
   if (to.path === "/login") {
     if (store.state.token === localStorage.getItem("token")) {
-      alert('已经登录准备跳转')
-      next('/admin')
+      next()
     } else {
       next()
       return
