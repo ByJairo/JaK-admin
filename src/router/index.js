@@ -30,5 +30,21 @@ const router = createRouter({
     routes: index
 })
 //路由守卫
-
+router.beforeEach((to, from, next) => {
+    if (to.path === "/login") {
+        if (store.state.token === localStorage.getItem("token")) {
+            next('/admin');
+        } else {
+            next()
+        }
+    } else {
+        if (store.state.token === localStorage.getItem("token")) {
+            next()
+        } else {
+            next({
+                path: "/login"
+            })
+        }
+    }
+})
 export default router
