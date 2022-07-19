@@ -1,9 +1,21 @@
 import {createStore} from "vuex";
-import uInfo from "./state/userinfo.state.js";
 
 export default createStore({
-    //全局状态初始值
-    //模块
-    modules: {uInfo}
-
-});
+    namespaced: true,
+//同步修改state内的值
+    state: {
+        token: '',
+    },
+    mutations: {
+        setToken(state, data) {
+            state.token = data
+        }
+    },
+    actions: {
+        setToken({commit}, data) {
+            context.commit('setToken', data)
+        }
+    }
+    //异步修改数据
+})
+//检测登录状态

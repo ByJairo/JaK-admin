@@ -6,16 +6,10 @@
   </div>
 </template>
 <script setup>
-import {useStore} from "vuex";
-import {useRouter} from "vue-router";
+import router from "../router";
 
-const router = useRouter();
-const store = useStore();
 const loginOut = () => {
-  localStorage.removeItem("loginData")
-  store.commit("setUserInfo", {})
-  router.push({
-    path: "/login"
-  })
+  localStorage.removeItem("token")
+  router.push('/login')
 }
 </script>

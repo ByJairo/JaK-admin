@@ -1,4 +1,6 @@
 import {post, get} from './service.js';
+import store from "../store";
+import router from "../router";
 //登陆接口
 export const loginApi = data => {
     return post({
@@ -8,9 +10,10 @@ export const loginApi = data => {
         if (res.status === 200) {
             //登陆成功后，将token保存到localStorage中
             localStorage.setItem('token', res.data.token);
-            //router不能用只能用原生写法跳转
-            window.location.href = '/admin';
-
+            //将token保存到vuex中
+            store.commit('setToken', res.data.token);
+            //跳转到首页
+            router.push('/admin')
         }
     }).catch(err => {
         alert('傻逼后端接口死掉了');

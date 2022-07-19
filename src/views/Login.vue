@@ -1,23 +1,29 @@
 <template>
-  <div class="dowebok" id="dowebok">
-    <!--登陆表单-->
-    <div class="form-container sign-in-container">
-      <form ref="formRef">
-        <h1>后台管理中心</h1>
-        <br/>
-        <input type="text" placeholder="用户名" prop="email" v-model="data.loginData.email">
-        <input type="password" placeholder="密码" prop="password" v-model="data.loginData.password">
-        <br/>
-        <!--        添加提交事件-->
-        <button type="button" @click="handleLogin">登录</button>
-      </form>
-    </div>
-    <!--右侧框-->
-    <div class="overlay-container">
-      <div class="overlay">
-        <div class="overlay-panel overlay-right">
-          <h1>智慧农业</h1>
-          <p>分宜数字健康农业产业园物联网大数据平台</p>
+  <div class="login">
+    <div class="dowebok" id="dowebok">
+      <!--登陆表单-->
+      <div class="form-container sign-in-container">
+        <form ref="formRef">
+          <h1>后台管理中心</h1>
+          <br/>
+          <br/>
+          <br/>
+          <input type="text" placeholder="用户名" prop="email" v-model="data.loginData.email">
+          <input type="password" placeholder="密码" prop="password" v-model="data.loginData.password">
+          <br/>
+          <br/>
+          <br/>
+          <!--        添加提交事件-->
+          <button type="button" @click="handleLogin">登录</button>
+        </form>
+      </div>
+      <!--右侧框-->
+      <div class="overlay-container">
+        <div class="overlay">
+          <div class="overlay-panel overlay-right">
+            <h1>智慧农业</h1>
+            <p>分宜数字健康农业产业园物联网大数据平台</p>
+          </div>
         </div>
       </div>
     </div>
@@ -25,12 +31,8 @@
 </template>
 
 <script setup>
-import {reactive, ref} from "vue";
-import store from "../store";
-import {useRoute, useRouter} from "vue-router";
+import {reactive} from "vue";
 import {loginApi} from "../utils/request";
-
-const router = useRouter();
 
 const data = reactive({
   loginData: {
@@ -47,7 +49,7 @@ const handleLogin = () => {
 
 </script>
 
-<style>
+<style scoped>
 * {
   box-sizing: border-box;
 }
@@ -59,8 +61,8 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  margin: -20px 0 50px;
+  /*height: 500%;*/
+  /*margin: 0px 0 0px;*/
 }
 
 h1 {
@@ -86,13 +88,22 @@ a {
   margin: 15px 0;
 }
 
+.login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 95vh;
+
+}
+
 .dowebok {
   background: #fff;
   border-radius: 10px;
   box-shadow: 0 14px 28px rgba(0, 0, 0, .25), 0 10px 10px rgba(0, 0, 0, .22);
   position: relative;
   overflow: hidden;
-  width: 768px;
+  width: 968px;
   max-width: 100%;
   min-height: 480px;
 }
@@ -132,7 +143,7 @@ a {
   border: none;
   padding: 12px 15px;
   margin: 8px 0;
-  width: 100%;
+  width: 80%;
   outline: none;
 }
 
