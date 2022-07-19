@@ -33,6 +33,8 @@
 <script setup>
 import {reactive} from "vue";
 import {loginApi} from "../utils/request";
+import router from "../router";
+import store from "../store";
 
 const data = reactive({
   loginData: {
@@ -46,7 +48,14 @@ const data = reactive({
 const handleLogin = () => {
   loginApi(data.loginData)
 }
-
+// const checkLogin = () => {
+//   if (store.state.token === localStorage.getItem("token")) {
+//     router.push("/admin")
+//   } else {
+//     return
+//   }
+// }
+// checkLogin();
 </script>
 
 <style scoped>

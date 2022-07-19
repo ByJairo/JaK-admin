@@ -7,7 +7,9 @@
 </template>
 <script setup>
 import router from "../router";
+import store from "../store";
 
+console.log(store.state.token)
 const loginOut = () => {
   localStorage.removeItem("token")
   router.push('/login')
