@@ -1,4 +1,4 @@
-# Vue3.2+Vite+Vuex后台通用框架后续更新Pina切换至ts版本
+# Vue3.2+Vite后台通用框架持续更新
 
 By Jairo<br/>
 开源项目不提供技术支持,如有问题自行解决
